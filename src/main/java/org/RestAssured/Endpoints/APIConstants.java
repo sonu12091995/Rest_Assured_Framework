@@ -1,6 +1,6 @@
 package org.RestAssured.Endpoints;
 
-public class API_constant {
+public class APIConstants {
 
     // Project #1 - Rest Ful Bookers
     public static String BASE_URL = "https://restful-booker.herokuapp.com";
