@@ -9,11 +9,13 @@ public class Auth {
 		this.username = username;
 	}
 
-	public String getUsername(){
+	public String getUsername()
+	{
 		return username;
 	}
 
-	public void setPassword(String password){
+	public void setPassword(String password)
+	{
 		this.password = password;
 	}
 

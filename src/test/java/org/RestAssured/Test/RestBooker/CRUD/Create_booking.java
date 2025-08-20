@@ -41,8 +41,8 @@ public class Create_booking extends Base_Test {
     public void testCreateBookingPOST_Negative() {
 
         requestSpecification.basePath(APIConstants.CREATE_UPDATE_BOOKING_URL);
-        response = RestAssured.given(requestSpecification).when().
-                body("{}").log().all().post();
+        response = RestAssured.given(requestSpecification)
+                .when().body("{}").log().all().post();
 
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(500);

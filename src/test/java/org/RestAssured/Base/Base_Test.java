@@ -31,11 +31,12 @@ public class Base_Test {
         payloadManager = new payloadManager();
         assertActions = new AssertActions();
 
+
 //        requestSpecification = RestAssured.given();
 //        requestSpecification.baseUri(APIConstants.BASE_URL);
 //        requestSpecification.contentType(ContentType.JSON).log().all();
 
-        requestSpecification = new RequestSpecBuilder()
+                 requestSpecification = new RequestSpecBuilder()
                 .setBaseUri(APIConstants.BASE_URL)
                 .addHeader("Content-Type", "application/json")
                 .build().log().all();

@@ -2,7 +2,7 @@ package org.RestAssured.Pojo.Response_pojo_Restfull;
 
 import java.io.Serializable;
 
-public class GenerateToken implements Serializable {
+public class TokenResponse implements Serializable {
 	private String token;
 
 	public void setToken(String token){

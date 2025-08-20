@@ -2,9 +2,12 @@ package org.RestAssured.Module;
 
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
+import org.RestAssured.Pojo.Request_pojo_Restfull.Auth;
 import org.RestAssured.Pojo.Request_pojo_Restfull.Booking;
 import org.RestAssured.Pojo.Request_pojo_Restfull.BookingDates;
 import org.RestAssured.Pojo.Response_pojo_Restfull.BookingResponse;
+import org.RestAssured.Pojo.Response_pojo_Restfull.InvalidTokenResponse;
+import org.RestAssured.Pojo.Response_pojo_Restfull.TokenResponse;
 
 public class payloadManager {
     // The responsibility of POJO is to serialization and deserialization.
@@ -105,4 +108,39 @@ public class payloadManager {
         return bookingResponse;
     }
 
-}
+    // Auth token serialization
+    public String setAuthtoken(){
+
+        Auth auth  = new Auth();
+        auth.setUsername("admin");
+        auth.setPassword("password123");
+
+        gson = new Gson();
+        String tokenJava = gson.toJson(auth);
+        return tokenJava;
+
+    }
+
+    // Auth token deserialization
+
+    public String getTokenFromJSON(String tokenResponse){
+        gson = new Gson();
+        TokenResponse tokenResponse1 = gson.fromJson(tokenResponse, TokenResponse.class);
+        return tokenResponse1.getToken();
+    }
+
+    // Invalid credential token
+
+    public String invalidCredential(String invalidTokenResponse){
+        gson = new Gson();
+        String  token1= gson.toJson(invalidTokenResponse , InvalidTokenResponse.class);
+        return token1;
+    }
+
+    }
+
+
+
+
+
+
