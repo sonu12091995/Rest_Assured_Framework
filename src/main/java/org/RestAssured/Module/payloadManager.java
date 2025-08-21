@@ -107,6 +107,11 @@ public class payloadManager {
         BookingResponse bookingResponse = gson.fromJson(responseString, BookingResponse.class);
         return bookingResponse;
     }
+    public Booking getResponseFromJSON(String responseString) {
+        gson = new Gson();
+        Booking bookingResponse = gson.fromJson(responseString, Booking.class);
+        return bookingResponse;
+    }
 
     // Auth token serialization
     public String setAuthtoken(){

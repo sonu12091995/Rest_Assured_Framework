@@ -59,18 +59,14 @@ public class Create_booking extends Base_Test {
                 .body(payloadManager.createPayloadBookingAsStringWrongBody())// chinese method call(createPayloadBookingAsStringWrongBody)
                 .log().all().post();
 
-
         // only check status code
         validatableResponse = response.then().log().all();
         validatableResponse.statusCode(200);
-
         // Extract step=2
         BookingResponse bookingResponse = payloadManager.bookingResponseJava(response.asString());
         assertActions.verifyStringKeyNotNull(bookingResponse.getBookingid());
 
-
     }
-
 
     @Test(groups = "reg",priority = 1)
     @Owner("Sonu sharma")
@@ -81,9 +77,8 @@ public class Create_booking extends Base_Test {
                .when().body(payloadManager.createPayloadBookingFakerJS())
                .log().all().post();
 
-// Deserilization
+// Deseilization
 
-        // Extract
 
         BookingResponse bookingResponse = payloadManager.bookingResponseJava(response.asString());
         assertActions.verifyStringKeyNotNull(bookingResponse.getBookingid());

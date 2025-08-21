@@ -15,16 +15,11 @@ public class Create_token extends Base_Test {
     public void tokenGenerated(){
         requestSpecification.basePath(APIConstants.AUTH_URL);
         response = RestAssured.given(requestSpecification).when().body(payloadManager.setAuthtoken()).post();
-
-
         // Extraction ( JSON String response to Java Object)
         String token = payloadManager.getTokenFromJSON(response.asString());
         System.out.println(token);
-
-
-
-
     }
+
     @Test(groups = "Reg", priority = 2)
     @Owner("Sonu")
     public void tokenInvalid(){
@@ -32,13 +27,11 @@ public class Create_token extends Base_Test {
         response = RestAssured.given(requestSpecification).when()
                 .body("{}").post();
 
-
         // Extraction ( JSON String response to Java Object)
         String invalidReason = payloadManager.invalidCredential(response.asString());
         System.out.println(invalidReason);
 
-  //Assertion
-
+       //Assertion
         assertActions.verifyStringKey(invalidReason,"Bad credentials");
 
 
